@@ -1,6 +1,6 @@
 {
   "name": "react-confirmation-code-input",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -19,7 +19,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "types": "./es/index.d.ts",
   "devDependencies": {
     "@babel/cli": "^7.21.0",

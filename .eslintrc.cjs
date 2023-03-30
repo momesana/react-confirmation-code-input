@@ -3,6 +3,7 @@
 module.exports = {
   extends: [
     "eslint:recommended",
+    "plugin:storybook/recommended",
     // prettier needs to come last
     "prettier",
   ],
@@ -11,7 +12,12 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
-    "no-console": ["error", { allow: ["warn", "error"] }],
+    "no-console": [
+      "error",
+      {
+        allow: ["warn", "error"],
+      },
+    ],
     "no-unused-vars": "error",
     "no-extra-boolean-cast": "off",
     eqeqeq: "error",

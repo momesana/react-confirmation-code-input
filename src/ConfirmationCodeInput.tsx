@@ -10,14 +10,21 @@ export interface Handles {
   setFocus: (n?: number) => void;
 }
 
-interface Props extends UseConfirmationCodeInputProps {
+type Props = Omit<UseConfirmationCodeInputProps, "useValueHook"> & {
   containerCls?: string;
   inputCls?: string;
   disabled?: boolean;
-}
+  isPassword?: boolean;
+};
 
 export default forwardRef(function ConfirmationCodeInput(
-  { containerCls = "", inputCls = "", disabled, ...hookProps }: Props,
+  {
+    containerCls = "",
+    inputCls = "",
+    isPassword,
+    disabled,
+    ...hookProps
+  }: Props,
   ref: ForwardedRef<Handles>
 ): JSX.Element {
   const { refs, value, inputProps, setFocus, clear, reset } =
@@ -38,6 +45,7 @@ export default forwardRef(function ConfirmationCodeInput(
     <div className={`vci-container ${containerCls}`}>
       {refs.map((ref, index) => (
         <input
+          type={isPassword ? "password" : "text"}
           disabled={disabled}
           className={`vci-input ${inputCls}`}
           value={inputValues[index]}

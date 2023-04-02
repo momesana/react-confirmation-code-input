@@ -17,8 +17,24 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": [],
-  "author": "",
+  "bugs": {
+    "url": "https://github.com/momesana/react-confirmation-code-input/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/momesana/react-confirmation-code-input"
+  },
+  "keywords": [
+    "react",
+    "react-hook",
+    "component",
+    "react-component",
+    "frontend",
+    "input",
+    "confirmation-code",
+    "ui"
+  ],
+  "author": "Mohammad Mehdi Salem Naraghi",
   "license": "MIT",
   "types": "./es/index.d.ts",
   "devDependencies": {
@@ -59,5 +75,9 @@
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   }
 }

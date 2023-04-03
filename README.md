@@ -1,17 +1,15 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 <a name="readme-top"></a>
 
-
-
 <!-- PROJECT SHIELDS -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -31,8 +29,6 @@
     <a href="https://github.com/momesana/react-confirmation-code-input/issues">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -54,9 +50,8 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 This library provides a hook that lets you write a confirmation code input component while the library manages the refs and some interactions like focusing the next input element when an input has been entered. It can thus be considered headless.
@@ -65,11 +60,9 @@ The library also provides you with a component implemented on top of that hook. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
-## Getting Started
 
+## Getting Started
 
 ### Prerequisites
 
@@ -78,26 +71,29 @@ This is a react library primarily providing a headles react hook for you to impl
 ### Installation
 
 #### NPM
+
 `npm install react-confirmation-code-input`
 
 #### Yarn
+
 `yarn add react-confirmation-code-input`
 
 #### PNPM
+
 `pnpm add react-confirmation-code-input`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
 ### Usage utilizing the hook
+
 ```typescript
-import * as React from 'react';
-import { useConfirmationCodeInput } from 'react-confirmation-code-input';
-import './style.css';
+import * as React from "react";
+import { useConfirmationCodeInput } from "react-confirmation-code-input";
+import "./style.css";
 
 export default function App() {
   const {
@@ -109,8 +105,8 @@ export default function App() {
     inputProps,
   } = useConfirmationCodeInput({
     length: 5,
-    allowedPattern: 'numeric',
-    initialValue: '01234',
+    allowedPattern: "numeric",
+    initialValue: "01234",
     autoFocus: true,
   });
 
@@ -134,18 +130,19 @@ export default function App() {
     </main>
   );
 }
-
 ```
+
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/react-ts-ecwebf)
 
 ### Using the provided Component
+
 ```typescript
-import * as React from 'react';
+import * as React from "react";
 import {
   ConfirmationCodeInput,
   ConfirmationCodeInputHandles as Handles,
-} from 'react-confirmation-code-input';
-import './style.css';
+} from "react-confirmation-code-input";
+import "./style.css";
 
 export default function App() {
   const handlesRef = React.useRef<Handles>(null);
@@ -177,18 +174,16 @@ export default function App() {
 }
 ```
 
-
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/react-ts-sfjq5u)
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- API -->
+
 ## API
 
 ### hook version
+
 The hook takes an object as parameter and returns an object as a result:
 
 ```ts
@@ -204,40 +199,44 @@ useConfirmationCodeInput(options: UseConfirmationCodeInputProps) => UseConfirmat
     length: number;
     onChange?: (value: string) => void;
 
-| Parameter  | Description | Type | Required | Default | 
-| ---------- | ----------- | ---- | -------- | ------- |
-|  allowedPattern | Accepted pattern  | AllowedPattern | no | "numeric" |
-|  useValueHook | The hook to store and modify the input value  | UseValue | no | |
-|  autoFocus | wheter to put focus on first input upon mounting  | boolean | no | true |
-|  initialValue | Initial value as string  | string |  no |  |
-|  length | Number of individual inputs | number | yes |  |
-|  onChange | method called when the value changes  | (value: string) => void | no |  |
+| Parameter      | Description                                      | Type                    | Required | Default   |
+| -------------- | ------------------------------------------------ | ----------------------- | -------- | --------- |
+| allowedPattern | Accepted pattern                                 | AllowedPattern          | no       | "numeric" |
+| useValueHook   | The hook to store and modify the input value     | UseValue                | no       |           |
+| autoFocus      | wheter to put focus on first input upon mounting | boolean                 | no       | true      |
+| initialValue   | Initial value as string                          | string                  | no       |           |
+| length         | Number of individual inputs                      | number                  | yes      |           |
+| onChange       | method called when the value changes             | (value: string) => void | no       |           |
 
 #### `AllowedPattern`:
+
 Allowed Pattern is either one of the predefined patterns `"numeric" | "alpha" | "alphanumeric"`, a `RegExp` or a function with the following signature:
 
 ```ts
-(input: string, index: number, value: string[]) => boolean
+(input: string, index: number, value: string[]) => boolean;
 ```
 
 #### `UseValue`
+
 Only provide this if you want to intercept/modify the input or the way it is stored. The signature is as follows:
 
 ```ts
 (options: UseValueOptions) => [string[], Mutators];
 ```
+
 `UseValueOptions` and `Mutators` are described below. You need to provide the same signature if you want to pass in a custom `useValue` parameter.
 
 #### `UseValueOptions`:
+
 An object of the shape `{ allowedPattern: AllowedPattern, length: number }`:
 
-| Property  | Description |
-| ------------- | ------------- |
-| allowedPattern  | The pattern for valid inputs  |
-| length  | The length of a valid code  |
-
+| Property       | Description                  |
+| -------------- | ---------------------------- |
+| allowedPattern | The pattern for valid inputs |
+| length         | The length of a valid code   |
 
 #### `Mutators`:
+
 An object of the shape:
 
 ```ts
@@ -248,14 +247,15 @@ An object of the shape:
 }
 
 ```
-| Property  | Description | Type
-| ------------- | ------------- | ----- |
-| clear  | A method to clear the value  | () => void |
-| reset  | A method to reset the value to either the given value | `(value?: string) => void` |(truncated/filled to the correct length) if given or else to the initial value.   |
-| update  | A method to update the value upon a given input character  | `(input: string, index: number, options: UpdateOptions) => void` |
 
+| Property | Description                                               | Type                                                             |
+| -------- | --------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| clear    | A method to clear the value                               | () => void                                                       |
+| reset    | A method to reset the value to either the given value     | `(value?: string) => void`                                       | (truncated/filled to the correct length) if given or else to the initial value. |
+| update   | A method to update the value upon a given input character | `(input: string, index: number, options: UpdateOptions) => void` |
 
 #### `UseConfirmationCodeInputResult`:
+
 The result of calling `useConfirmationCodeInput` is an option adhering to the following interface:
 
 ```ts
@@ -272,64 +272,61 @@ The result of calling `useConfirmationCodeInput` is an option adhering to the fo
     };
 ```
 
-| Property  | Description | Type |
-| ------------- | ------------- | ---- |
-| refs | An array of refs each of which needs to be passed to the respective input element | `Array<RefObject<HTMLInputElement>>` |
-| value | The current value as a string array with each value comprising a single character | `string[]` |
-| reset | see `Mutators` | `(value?: string) => void` |
-| clear | see `Mutators` | `() => void` |
-| setFocus | see `Mutators` | `(index?: number) => void` |
-| inputProps | The object with properties that must be passed to each individual input | `InputProps` |'
-
+| Property   | Description                                                                       | Type                                 |
+| ---------- | --------------------------------------------------------------------------------- | ------------------------------------ | --- |
+| refs       | An array of refs each of which needs to be passed to the respective input element | `Array<RefObject<HTMLInputElement>>` |
+| value      | The current value as a string array with each value comprising a single character | `string[]`                           |
+| reset      | see `Mutators`                                                                    | `(value?: string) => void`           |
+| clear      | see `Mutators`                                                                    | `() => void`                         |
+| setFocus   | see `Mutators`                                                                    | `(index?: number) => void`           |
+| inputProps | The object with properties that must be passed to each individual input           | `InputProps`                         | '   |
 
 #### `InputProps`
+
 The `inputProps` returned by the `useConfirmationCodeInputResult` hook are supposed to be spread into each of the input elements. They comprise needed event handlers on which the hook relies in order to react to user events.
 
-| Property  | Description | Type |
-| ------------- | ------------- | ---- |
-| onFocus | onFocus event handler | `FocusEventHandler<HTMLInputElement>` |
-| onKeyDown | onKeyDown event handler | `KeyboardEventHandler<HTMLInputElement>` |
-| onPaste | onPaste event handler | `ClipboardEventHandler<HTMLInputElement>` |
-| onInput | onInput event handler | `FormEventHandler<HTMLInputElement>` |
+| Property  | Description             | Type                                      |
+| --------- | ----------------------- | ----------------------------------------- |
+| onFocus   | onFocus event handler   | `FocusEventHandler<HTMLInputElement>`     |
+| onKeyDown | onKeyDown event handler | `KeyboardEventHandler<HTMLInputElement>`  |
+| onPaste   | onPaste event handler   | `ClipboardEventHandler<HTMLInputElement>` |
+| onInput   | onInput event handler   | `FormEventHandler<HTMLInputElement>`      |
 
 ### Component
+
 The component takes the following parameters:
 
-| Property  | Description | Type | Required | Default |
-| --------- | ----------- | ---- | -------- | ------- |
-| ref | reference to get access to the exposed Mutators | React.MutableRefObject<ConfirmationCodeInputHandles> | no |  |
-| length | See corresponding hook param | `number` | yes | |
-| allowedPattern | See corresponding hook param | `AllowedPattern` | no | `numeric` |
-| initialValue | See corresponding hook param | `string` | no | |
-| onChange | See corresponding hook param | `(value: string) => void` | no | |
-| autoFocus | See corresponding hook param | `boolean` | no | |
-| containerCls | CSS class to be appended to the input container's class names  | `string` | no | |
-| inputCls | CSS class to be appended to the input's class names  | `string` | no | |
-| disabled | Whether the inputs are disabled  | `boolean` | no | |
-| isPassword | Whether the inputs are of type `password`  | `boolean` | no | |
-
-
-
+| Property       | Description                                                   | Type                                                 | Required | Default   |
+| -------------- | ------------------------------------------------------------- | ---------------------------------------------------- | -------- | --------- |
+| ref            | reference to get access to the exposed Mutators               | React.MutableRefObject<ConfirmationCodeInputHandles> | no       |           |
+| length         | See corresponding hook param                                  | `number`                                             | yes      |           |
+| allowedPattern | See corresponding hook param                                  | `AllowedPattern`                                     | no       | `numeric` |
+| initialValue   | See corresponding hook param                                  | `string`                                             | no       |           |
+| onChange       | See corresponding hook param                                  | `(value: string) => void`                            | no       |           |
+| autoFocus      | See corresponding hook param                                  | `boolean`                                            | no       |           |
+| containerCls   | CSS class to be appended to the input container's class names | `string`                                             | no       |           |
+| inputCls       | CSS class to be appended to the input's class names           | `string`                                             | no       |           |
+| disabled       | Whether the inputs are disabled                               | `boolean`                                            | no       |           |
+| isPassword     | Whether the inputs are of type `password`                     | `boolean`                                            | no       |           |
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Project Link: [https://github.com/momesana/react-confirmation-code-input](https://github.com/momesana/react-confirmation-code-input/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/momesana/react-confirmation-code-input.svg?style=for-the-badge
 [contributors-url]: https://github.com/momesana/react-confirmation-code-input/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/momesana/react-confirmation-code-input.svg?style=for-the-badge

@@ -6,6 +6,7 @@
   "module": "./es/index.js",
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "webpack serve --env --env libraryType=esm",
     "build": "webpack --mode production --env libraryType=commonjs",
     "build-esm": "webpack --mode production --env libraryType=esm",

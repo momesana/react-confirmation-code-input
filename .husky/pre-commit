@@ -1,6 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+FOR_PRETTIER=$(git --no-pager diff --name-only --cached --diff-filter=AM --relative '*.md' '*.html' '*.svg' '*.xml' '*.yml' '*.yaml' '*.json' '*.js' '*.jsx' '*.ts' '*.tsx' '*.css' '*.scss' | xargs)
+
+FOR_LINTER=$(git --no-pager diff --name-only --cached --diff-filter=AM --relative '*.ts' '*.tsx' | xargs)
+
+[ -n "$FOR_PRETTIER" ] && pnpm check-format
+[ -n "$FOR_LINTER" ] && pnpm lint
+
 pnpm typecheck
-pnpm check-format
-pnpm lint

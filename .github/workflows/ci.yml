@@ -1,0 +1,33 @@
+name: CI
+on: [pull_request]
+
+jobs:
+  git_checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          architecture: "x64"
+      - name: Use pnpm actions
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Initialize project
+        run: pnpm install --frozen-lockfile
+      - name: Ensure linear history
+        run: git merge-base --is-ancestor "origin/${GITHUB_BASE_REF}" HEAD
+      - name: Check for fixup or WIP commits
+        run: |
+          ! git log "origin/${GITHUB_BASE_REF}..HEAD" | egrep ' fixup! |wip|Wip|WIP'
+      - name: Run linter
+        run: pnpm lint
+      - name: Run format check
+        run: pnpm check-format
+      - name: Run type checks
+        run: pnpm typecheck

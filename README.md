@@ -3,13 +3,11 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -337,7 +335,5 @@ Project Link: [https://github.com/momesana/react-confirmation-code-input](https:
 [issues-url]: https://github.com/momesana/react-confirmation-code-input/issues
 [license-shield]: https://img.shields.io/github/license/momesana/react-confirmation-code-input.svg?style=for-the-badge
 [license-url]: https://github.com/momesana/react-confirmation-code-input/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/m-mehdi-salem-naraghi-98856222
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/

@@ -31,3 +31,5 @@ jobs:
         run: pnpm check-format
       - name: Run type checks
         run: pnpm typecheck
+      - name: Run commit linter
+        run: pnpm commit-lint

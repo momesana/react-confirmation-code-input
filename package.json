@@ -15,9 +15,10 @@
     "format": "prettier --write .",
     "generate-types": "tsc --project ./src/tsconfig.json --noEmit false --emitDeclarationOnly true --outDir ./es",
     "check-format": "prettier --check .",
+    "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky install"
+    "commit-lint": "pnpm commitlint --from=$(git rev-list \"origin/${GITHUB_BASE_REF}\"..HEAD | sed '1!d')~1"
   },
   "bugs": {
     "url": "https://github.com/momesana/react-confirmation-code-input/issues"

@@ -251,9 +251,9 @@ An object of the shape:
 ```
 
 | Property | Description                                               | Type                                                             |
-| -------- | --------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| -------- | --------------------------------------------------------- | ---------------------------------------------------------------- |
 | clear    | A method to clear the value                               | () => void                                                       |
-| reset    | A method to reset the value to either the given value     | `(value?: string) => void`                                       | (truncated/filled to the correct length) if given or else to the initial value. |
+| reset    | A method to reset the value to either the given value     | `(value?: string) => void`                                       |
 | update   | A method to update the value upon a given input character | `(input: string, index: number, options: UpdateOptions) => void` |
 
 #### `UseConfirmationCodeInputResult`:
@@ -275,13 +275,13 @@ The result of calling `useConfirmationCodeInput` is an option adhering to the fo
 ```
 
 | Property   | Description                                                                       | Type                                 |
-| ---------- | --------------------------------------------------------------------------------- | ------------------------------------ | --- |
+| ---------- | --------------------------------------------------------------------------------- | ------------------------------------ |
 | refs       | An array of refs each of which needs to be passed to the respective input element | `Array<RefObject<HTMLInputElement>>` |
 | value      | The current value as a string array with each value comprising a single character | `string[]`                           |
 | reset      | see `Mutators`                                                                    | `(value?: string) => void`           |
 | clear      | see `Mutators`                                                                    | `() => void`                         |
 | setFocus   | see `Mutators`                                                                    | `(index?: number) => void`           |
-| inputProps | The object with properties that must be passed to each individual input           | `InputProps`                         | '   |
+| inputProps | The object with properties that must be passed to each individual input           | `InputProps`                         |
 
 #### `InputProps`
 

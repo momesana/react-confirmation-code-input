@@ -33,3 +33,5 @@ jobs:
         run: pnpm typecheck
       - name: Run commit linter
         run: pnpm commit-lint
+      - name: Run linter
+        run: pnpm lint
